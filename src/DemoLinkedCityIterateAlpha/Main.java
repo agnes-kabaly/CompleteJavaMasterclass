@@ -8,14 +8,21 @@ public class Main {
 
     public static void main(String[] args) {
         LinkedList<String> placesToVisit = new LinkedList<>();
-        placesToVisit.add("Sydney");
-        placesToVisit.add("Melbourne");
-        placesToVisit.add("Brisbane");
-        placesToVisit.add("Perth");
-        placesToVisit.add("Canberra");
-        placesToVisit.add("Adelaide");
+        addInOrder(placesToVisit, "Sydney");
+        addInOrder(placesToVisit, "Melbourne");
+        addInOrder(placesToVisit, "Brisbane");
+        addInOrder(placesToVisit, "Perth");
+        addInOrder(placesToVisit, "Canberra");
+        addInOrder(placesToVisit, "Adelaide");
+        addInOrder(placesToVisit, "Darwin");
 
         printList(placesToVisit);
+
+        addInOrder(placesToVisit, "Alice Springs");
+        addInOrder(placesToVisit, "Darwin");
+
+        printList(placesToVisit);
+
     }
 
     private static void printList(LinkedList<String> linkedList) {
@@ -40,14 +47,14 @@ public class Main {
                 stringListIterator.previous();
                 stringListIterator.add(newCity);
                 return true;
+            } else if (comparison < 0) {
+                // move on next city
+                continue;
             }
-
-
         }
 
-
-        return false;
-
+        stringListIterator.add(newCity);
+        return true;
     }
 
 
